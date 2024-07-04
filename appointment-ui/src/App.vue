@@ -338,28 +338,40 @@ console.log(this.chatJson)
       }
 
       
-      const loadVoices = () => {
-      return new Promise((resolve) => {
-        const voices = window.speechSynthesis.getVoices();
-        if (voices.length !== 0) {
-          resolve(voices);
-        } else {
-          window.speechSynthesis.onvoiceschanged = () => {
-            resolve(window.speechSynthesis.getVoices());
-          };
-        }
-      });
-    };
+    //   const loadVoices = () => {
+    //   return new Promise((resolve) => {
+    //     const voices = window.speechSynthesis.getVoices();
+    //     if (voices.length !== 0) {
+    //       resolve(voices);
+    //     } else {
+    //       window.speechSynthesis.onvoiceschanged = () => {
+    //         resolve(window.speechSynthesis.getVoices());
+    //       };
+    //     }
+    //   });
+    // };
 
-      const voices = await loadVoices();
-
-      
-      console.log(voices)
-      const selectedVoice = voices.find(voice => voice.name === 'Microsoft Heera - English (India)');
-      console.log(selectedVoice)
-
+    //   const voices = await loadVoices();
 
       
+    //   console.log(voices)
+    //   const selectedVoice = voices.find(voice => voice.name === 'Microsoft Heera - English (India)');
+    //   console.log(selectedVoice
+    // console.log(speechSynthesisUtterance.voice)
+    //   // speechSynthesisUtterance.lang = 'ko-KR'; // Korean language
+
+
+
+    //   console.log(speechSynthesisUtterance)
+
+
+      
+    //   if (selectedVoice) {
+    //   speechSynthesisUtterance.voice = selectedVoice;
+    //   }
+
+    //   console.log("the selected voice is:")
+    //   console.log(selectedVoice)
 
       if (this.isPaused && this.speechSynthesisUtterance) {
             window.speechSynthesis.resume();
@@ -371,21 +383,7 @@ console.log(this.chatJson)
       console.log(text)
       const speechSynthesisUtterance = new SpeechSynthesisUtterance(text);
 
-      console.log(speechSynthesisUtterance.voice)
-      // speechSynthesisUtterance.lang = 'ko-KR'; // Korean language
-
-
-
-      console.log(speechSynthesisUtterance)
-
-
       
-      if (selectedVoice) {
-      speechSynthesisUtterance.voice = selectedVoice;
-      }
-
-      console.log("the selected voice is:")
-      console.log(selectedVoice)
 
 
       const audioContext = new (window.AudioContext || window.webkitAudioContext)();
